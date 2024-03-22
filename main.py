@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import requests
 url = 'https://dolarhoy.com/i/cotizaciones/dolar-blue'
 datos = BeautifulSoup(requests.get(url).text, "html5lib")
-print(datos.prettify())
 precios_raw = datos.find_all("p")  # Los valores de precios están entre p-tags
 actualizado_raw = datos.find_all('span')
 actualizado = str(actualizado_raw[2])[37:62]
